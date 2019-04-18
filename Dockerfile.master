@@ -14,4 +14,4 @@ RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
 COPY server.py bringup.sh master test.py /srv/
 
 WORKDIR "/srv"
-CMD ["/srv/master"]
+CMD ["/srv/master", "$VOLUMES"]

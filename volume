@@ -2,5 +2,7 @@
 
 # create 65536 directories for files
 mkdir -p /data/www/{0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f}{0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f}/{0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f}{0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f}
-
-nginx
+chown -R nginx:www-data /data/www/
+mkdir -p /data/www_temp
+chown -R nginx:www-data /data/www_temp
+exec nginx-debug

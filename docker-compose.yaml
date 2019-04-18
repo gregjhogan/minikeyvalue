@@ -1,17 +1,20 @@
-master:
-  container_name: minikeyvalue-master
-  image: minikeyvalue-master
-  environment:
-    - VOLUMES=localhost:3001,localhost:3002
-  ports:
-    - 3000:3000
-volume_1:
-  container_name: minikeyvalue-volume-1
-  image: minikeyvalue-volume
-  ports:
-    - 3001:80
-volume_2:
-  container_name: minikeyvalue-volume-2
-  image: minikeyvalue-volume
-  ports:
-    - 3002:80
+version: '3.6'
+services:
+  master:
+    container_name: minikeyvalue-master
+    image: minikeyvalue-master
+    environment:
+      - VOLUMES=volume-1:3001,volume-2:3001
+    ports:
+      - 3000:3000
+    stop_signal: SIGINT
+  volume-1:
+    container_name: minikeyvalue-volume-1
+    image: minikeyvalue-volume
+    ports:
+      - 3001:3001
+  volume-2:
+    container_name: minikeyvalue-volume-2
+    image: minikeyvalue-volume
+    ports:
+      - 3002:3001
