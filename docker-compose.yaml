@@ -1,0 +1,17 @@
+master:
+  container_name: minikeyvalue-master
+  image: minikeyvalue-master
+  environment:
+    - VOLUMES=localhost:3001,localhost:3002
+  ports:
+    - 3000:3000
+volume_1:
+  container_name: minikeyvalue-volume-1
+  image: minikeyvalue-volume
+  ports:
+    - 3001:80
+volume_2:
+  container_name: minikeyvalue-volume-2
+  image: minikeyvalue-volume
+  ports:
+    - 3002:80
